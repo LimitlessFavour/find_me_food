@@ -14,7 +14,7 @@ extension LocationStatusX on LocationStatus {
 
 @JsonSerializable()
 class CurrentlocationState extends Equatable {
-  const CurrentlocationState({
+   CurrentlocationState({
     this.status = LocationStatus.initial,
     Location? location,
   }) : location = location ?? Location.empty;
@@ -42,4 +42,4 @@ class CurrentlocationState extends Equatable {
   List<Object?> get props => [status, location];
 }
 
-class CurrentlocationInitial extends CurrentlocationState {}
+// class CurrentlocationInitial extends CurrentlocationState {}
