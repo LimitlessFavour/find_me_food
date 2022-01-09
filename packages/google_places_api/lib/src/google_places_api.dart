@@ -43,7 +43,7 @@ class NearbyPlacesApiClient {
       throw NearbyPlacesRequestFailure(placesResponse.reasonPhrase);
     }
 
-    final placesJson = jsonDecode(placesResponse.body);
+    final placesJson = json.decode(placesResponse.body, reviver: null);
     log('can we get a log message?');
     List<Place> places = NearbyPlacesResults.fromJson(placesJson).places;
     if (places.isEmpty) {

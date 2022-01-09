@@ -8,22 +8,27 @@ environment:
 
 dependencies:
   bloc: ^8.0.1
+  equatable: ^2.0.3
   flutter:
     sdk: flutter
+  flutter_bloc: ^8.0.0
   flutter_localizations:
     sdk: flutter
-  intl: ^0.17.0    
-  flutter_bloc: ^8.0.0
-  # equatable: ^2.0.3
+  freezed_annotation:
+  google_places_api:
+    path: packages/google_places_api
+  intl: ^0.17.0
+  json_annotation: ^4.0.1
   location_repository:
     path: packages/location_repository
-  google_places_api:
-    path: packages/google_places_api    
 
 dev_dependencies:
   bloc_test: ^9.0.1
+  build_runner: null
   flutter_test:
     sdk: flutter
+  freezed: null
+  json_serializable: ^4.1.4
   mocktail: ^0.2.0
   very_good_analysis: ^2.4.0
 

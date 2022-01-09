@@ -1,4 +1,5 @@
 import 'package:geolocator/geolocator.dart';
+import 'package:location_repository/src/models/position.dart';
 
 /// Exception thrown when location services are disabled.
 class LocationDisabledFailure implements Exception {}
@@ -18,10 +19,10 @@ class LocationRepository {
 
   final Locator _locator;
 
-  Future<Position> currentLocation({
+  Future<LocatorPosition> currentLocation({
     LocationAccuracy locationAccuracy = LocationAccuracy.high,
   }) async {
-    Position position;
+    LocatorPosition position;
     bool serviceEnabled;
     LocationPermission permission;
 
@@ -51,19 +52,20 @@ class LocationRepository {
 class Locator {
   const Locator();
 
-  Future<bool> isLocationServiceEnabled() async{
+  Future<bool> isLocationServiceEnabled() async {
     return await Geolocator.isLocationServiceEnabled();
   }
 
-  Future<LocationPermission> checkPermission()async {
+  Future<LocationPermission> checkPermission() async {
     return await Geolocator.checkPermission();
   }
 
-  Future<LocationPermission> requestPermission() async{
+  Future<LocationPermission> requestPermission() async {
     return await Geolocator.requestPermission();
   }
 
-  Future<Position> getCurrentPosition(LocationAccuracy accuracy) async{
-    return await Geolocator.getCurrentPosition(desiredAccuracy: accuracy);
+  Future<LocatorPosition> getCurrentPosition(LocationAccuracy accuracy) async {
+    return LocatorPosition.fromPosition(
+        await Geolocator.getCurrentPosition(desiredAccuracy: accuracy));
   }
 }

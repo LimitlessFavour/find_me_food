@@ -1,5 +1,6 @@
 import 'package:geolocator/geolocator.dart';
 import 'package:location_repository/location_repository.dart';
+import 'package:location_repository/src/models/models.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:test/test.dart';
 
@@ -10,12 +11,12 @@ void main() {
     late LocationRepository locationRepository;
     late MockedGeolocator mockedLocator;
 
-    late Position mockedPosition;
+    late LocatorPosition mockedPosition;
 
     setUpAll(() {
       mockedLocator = MockedGeolocator();
       locationRepository = LocationRepository(locator: mockedLocator);
-      mockedPosition = Position(
+      mockedPosition = LocatorPosition(
         longitude: 10.98,
         latitude: 30.43,
         timestamp: DateTime.now(),
