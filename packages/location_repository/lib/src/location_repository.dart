@@ -51,16 +51,16 @@ class LocationRepository {
 class Locator {
   const Locator();
 
-  Future<bool> isLocationServiceEnabled(){
-    return  Geolocator.isLocationServiceEnabled();
+  Future<bool> isLocationServiceEnabled() async{
+    return await Geolocator.isLocationServiceEnabled();
   }
 
-  Future<LocationPermission> checkPermission() {
-    return Geolocator.checkPermission();
+  Future<LocationPermission> checkPermission()async {
+    return await Geolocator.checkPermission();
   }
 
-  Future<LocationPermission> requestPermission() {
-    return Geolocator.requestPermission();
+  Future<LocationPermission> requestPermission() async{
+    return await Geolocator.requestPermission();
   }
 
   Future<Position> getCurrentPosition(LocationAccuracy accuracy) async{

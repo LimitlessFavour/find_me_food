@@ -17,6 +17,8 @@ dependencies:
   # equatable: ^2.0.3
   location_repository:
     path: packages/location_repository
+  google_places_api:
+    path: packages/google_places_api    
 
 dev_dependencies:
   bloc_test: ^9.0.1

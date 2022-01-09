@@ -1,0 +1,24 @@
+name: google_places_api
+description: A new Flutter package project.
+version: 0.0.1
+homepage:
+
+environment:
+  sdk: ">=2.15.0 <3.0.0"
+
+dependencies:
+  http: ^0.13.0
+  json_annotation: ^4.0.1
+  freezed_annotation:
+
+
+
+dev_dependencies:
+  flutter_lints: ^1.0.0
+  build_runner:
+  json_serializable: ^4.1.4
+  freezed:
+  mocktail: ^0.2.0
+  test: ^1.16.4
+
+
