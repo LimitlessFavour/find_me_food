@@ -41,5 +41,3 @@ class CurrentlocationState extends Equatable {
   @override
   List<Object?> get props => [status, location];
 }
-
-// class CurrentlocationInitial extends CurrentlocationState {}

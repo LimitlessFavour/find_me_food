@@ -9,7 +9,8 @@ part 'search_params.freezed.dart';
 @freezed
 class SearchParams with _$SearchParams {
   factory SearchParams({
-    @JsonKey(name: 'last_updated_location') required LatLng? lastUpdatedLocation,
+    @JsonKey(name: 'last_updated_location')
+        required LatLng? lastUpdatedLocation,
     @JsonKey(name: 'current_location') required LatLng? currentLocation,
     @JsonKey(name: 'place_filter') required PlaceFilter placeFilter,
     @Default(false) @JsonKey(name: 'force_refresh') bool forceRefresh,
@@ -17,4 +18,13 @@ class SearchParams with _$SearchParams {
 
   factory SearchParams.fromJson(Map<String, dynamic> json) =>
       _$SearchParamsFromJson(json);
+
+  static final empty = SearchParams(
+    lastUpdatedLocation: null,
+    currentLocation: null,
+    placeFilter: PlaceFilter(
+      latLng: null,
+      placeType: PlaceType.restaurant,
+    ),
+  );
 }

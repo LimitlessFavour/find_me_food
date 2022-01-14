@@ -1,8 +1,10 @@
+// ignore_for_file: public_member_api_docs
+
 import 'dart:convert';
 import 'package:google_places_api/src/env.dart';
+import 'package:google_places_api/src/models/models.dart';
 import 'package:http/http.dart' as http;
 
-import 'models/models.dart';
 
 /// Exception thrown when getNearbyPlaces fails.
 class NearbyPlacesRequestFailure implements Exception {
@@ -40,8 +42,8 @@ class NearbyPlacesApiClient {
       throw NearbyPlacesRequestFailure(placesResponse.reasonPhrase);
     }
 
-    final placesJson = json.decode(placesResponse.body, reviver: null);
-    List<Place> places = NearbyPlacesResults.fromJson(placesJson).places;
+    final placesJson = json.decode(placesResponse.body) as Map<String, dynamic>;
+    final places = NearbyPlacesResults.fromJson(placesJson).places;
     if (places.isEmpty) {
       throw NearbyPlacesNotFoundFailure();
     }

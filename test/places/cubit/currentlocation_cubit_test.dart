@@ -15,7 +15,7 @@ class MockPosition extends Mock implements location_repository.LocatorPosition {
 const mockLatitude = 33.0;
 const mockLongitude = -19.8;
 
-void main() {
+  void main() {
   group('location cubit', () {
     late location_repository.LocatorPosition position;
     late location_repository.LocationRepository locationRepository;
