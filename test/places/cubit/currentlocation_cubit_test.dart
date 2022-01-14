@@ -1,10 +1,10 @@
+import 'package:bloc_test/bloc_test.dart';
 import 'package:find_me_food_bloc/places/cubit/current_location/currentlocation_cubit.dart';
 import 'package:find_me_food_bloc/places/models/models.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:location_repository/location_repository.dart'
     as location_repository;
 import 'package:mocktail/mocktail.dart';
-import 'package:bloc_test/bloc_test.dart';
 
 class MockLocationRepository extends Mock
     implements location_repository.LocationRepository {}

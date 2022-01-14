@@ -1,5 +1,4 @@
 import 'package:find_me_food_bloc/app/model/flavor_config.dart';
-import 'package:find_me_food_bloc/counter/counter.dart';
 import 'package:find_me_food_bloc/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -24,7 +23,7 @@ class App extends StatelessWidget {
         GlobalMaterialLocalizations.delegate,
       ],
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const CounterPage(),
+      // home: const CounterPage(),
     );
   }
 }

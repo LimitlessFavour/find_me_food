@@ -1,7 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
-
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:google_places_api/src/env.dart';
 import 'package:http/http.dart' as http;
 
@@ -44,12 +41,11 @@ class NearbyPlacesApiClient {
     }
 
     final placesJson = json.decode(placesResponse.body, reviver: null);
-    log('can we get a log message?');
     List<Place> places = NearbyPlacesResults.fromJson(placesJson).places;
     if (places.isEmpty) {
       throw NearbyPlacesNotFoundFailure();
     }
-
     return places;
   }
 }
+
