@@ -28,12 +28,15 @@ class _$SearchParamsTearOff {
       @JsonKey(name: 'place_filter')
           required PlaceFilter placeFilter,
       @JsonKey(name: 'force_refresh')
-          bool forceRefresh = false}) {
+          bool forceRefresh = false,
+      @JsonKey(name: 'search_distance')
+          num searchDistance = 3000}) {
     return _SearchParams(
       lastUpdatedLocation: lastUpdatedLocation,
       currentLocation: currentLocation,
       placeFilter: placeFilter,
       forceRefresh: forceRefresh,
+      searchDistance: searchDistance,
     );
   }
 
@@ -55,6 +58,8 @@ mixin _$SearchParams {
   PlaceFilter get placeFilter => throw _privateConstructorUsedError;
   @JsonKey(name: 'force_refresh')
   bool get forceRefresh => throw _privateConstructorUsedError;
+  @JsonKey(name: 'search_distance')
+  num get searchDistance => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -71,7 +76,8 @@ abstract class $SearchParamsCopyWith<$Res> {
       {@JsonKey(name: 'last_updated_location') LatLng? lastUpdatedLocation,
       @JsonKey(name: 'current_location') LatLng? currentLocation,
       @JsonKey(name: 'place_filter') PlaceFilter placeFilter,
-      @JsonKey(name: 'force_refresh') bool forceRefresh});
+      @JsonKey(name: 'force_refresh') bool forceRefresh,
+      @JsonKey(name: 'search_distance') num searchDistance});
 
   $LatLngCopyWith<$Res>? get lastUpdatedLocation;
   $LatLngCopyWith<$Res>? get currentLocation;
@@ -92,6 +98,7 @@ class _$SearchParamsCopyWithImpl<$Res> implements $SearchParamsCopyWith<$Res> {
     Object? currentLocation = freezed,
     Object? placeFilter = freezed,
     Object? forceRefresh = freezed,
+    Object? searchDistance = freezed,
   }) {
     return _then(_value.copyWith(
       lastUpdatedLocation: lastUpdatedLocation == freezed
@@ -110,6 +117,10 @@ class _$SearchParamsCopyWithImpl<$Res> implements $SearchParamsCopyWith<$Res> {
           ? _value.forceRefresh
           : forceRefresh // ignore: cast_nullable_to_non_nullable
               as bool,
+      searchDistance: searchDistance == freezed
+          ? _value.searchDistance
+          : searchDistance // ignore: cast_nullable_to_non_nullable
+              as num,
     ));
   }
 
@@ -154,7 +165,8 @@ abstract class _$SearchParamsCopyWith<$Res>
       {@JsonKey(name: 'last_updated_location') LatLng? lastUpdatedLocation,
       @JsonKey(name: 'current_location') LatLng? currentLocation,
       @JsonKey(name: 'place_filter') PlaceFilter placeFilter,
-      @JsonKey(name: 'force_refresh') bool forceRefresh});
+      @JsonKey(name: 'force_refresh') bool forceRefresh,
+      @JsonKey(name: 'search_distance') num searchDistance});
 
   @override
   $LatLngCopyWith<$Res>? get lastUpdatedLocation;
@@ -180,6 +192,7 @@ class __$SearchParamsCopyWithImpl<$Res> extends _$SearchParamsCopyWithImpl<$Res>
     Object? currentLocation = freezed,
     Object? placeFilter = freezed,
     Object? forceRefresh = freezed,
+    Object? searchDistance = freezed,
   }) {
     return _then(_SearchParams(
       lastUpdatedLocation: lastUpdatedLocation == freezed
@@ -198,6 +211,10 @@ class __$SearchParamsCopyWithImpl<$Res> extends _$SearchParamsCopyWithImpl<$Res>
           ? _value.forceRefresh
           : forceRefresh // ignore: cast_nullable_to_non_nullable
               as bool,
+      searchDistance: searchDistance == freezed
+          ? _value.searchDistance
+          : searchDistance // ignore: cast_nullable_to_non_nullable
+              as num,
     ));
   }
 }
@@ -213,7 +230,9 @@ class _$_SearchParams implements _SearchParams {
       @JsonKey(name: 'place_filter')
           required this.placeFilter,
       @JsonKey(name: 'force_refresh')
-          this.forceRefresh = false});
+          this.forceRefresh = false,
+      @JsonKey(name: 'search_distance')
+          this.searchDistance = 3000});
 
   factory _$_SearchParams.fromJson(Map<String, dynamic> json) =>
       _$_$_SearchParamsFromJson(json);
@@ -230,10 +249,13 @@ class _$_SearchParams implements _SearchParams {
   @override
   @JsonKey(name: 'force_refresh')
   final bool forceRefresh;
+  @override
+  @JsonKey(name: 'search_distance')
+  final num searchDistance;
 
   @override
   String toString() {
-    return 'SearchParams(lastUpdatedLocation: $lastUpdatedLocation, currentLocation: $currentLocation, placeFilter: $placeFilter, forceRefresh: $forceRefresh)';
+    return 'SearchParams(lastUpdatedLocation: $lastUpdatedLocation, currentLocation: $currentLocation, placeFilter: $placeFilter, forceRefresh: $forceRefresh, searchDistance: $searchDistance)';
   }
 
   @override
@@ -251,7 +273,10 @@ class _$_SearchParams implements _SearchParams {
                     .equals(other.placeFilter, placeFilter)) &&
             (identical(other.forceRefresh, forceRefresh) ||
                 const DeepCollectionEquality()
-                    .equals(other.forceRefresh, forceRefresh)));
+                    .equals(other.forceRefresh, forceRefresh)) &&
+            (identical(other.searchDistance, searchDistance) ||
+                const DeepCollectionEquality()
+                    .equals(other.searchDistance, searchDistance)));
   }
 
   @override
@@ -260,7 +285,8 @@ class _$_SearchParams implements _SearchParams {
       const DeepCollectionEquality().hash(lastUpdatedLocation) ^
       const DeepCollectionEquality().hash(currentLocation) ^
       const DeepCollectionEquality().hash(placeFilter) ^
-      const DeepCollectionEquality().hash(forceRefresh);
+      const DeepCollectionEquality().hash(forceRefresh) ^
+      const DeepCollectionEquality().hash(searchDistance);
 
   @JsonKey(ignore: true)
   @override
@@ -282,7 +308,9 @@ abstract class _SearchParams implements SearchParams {
       @JsonKey(name: 'place_filter')
           required PlaceFilter placeFilter,
       @JsonKey(name: 'force_refresh')
-          bool forceRefresh}) = _$_SearchParams;
+          bool forceRefresh,
+      @JsonKey(name: 'search_distance')
+          num searchDistance}) = _$_SearchParams;
 
   factory _SearchParams.fromJson(Map<String, dynamic> json) =
       _$_SearchParams.fromJson;
@@ -299,6 +327,9 @@ abstract class _SearchParams implements SearchParams {
   @override
   @JsonKey(name: 'force_refresh')
   bool get forceRefresh => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: 'search_distance')
+  num get searchDistance => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$SearchParamsCopyWith<_SearchParams> get copyWith =>

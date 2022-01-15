@@ -18,6 +18,7 @@ _$_SearchParams _$_$_SearchParamsFromJson(Map<String, dynamic> json) {
     placeFilter:
         PlaceFilter.fromJson(json['place_filter'] as Map<String, dynamic>),
     forceRefresh: json['force_refresh'] as bool,
+    searchDistance: json['search_distance'] as num,
   );
 }
 
@@ -27,4 +28,5 @@ Map<String, dynamic> _$_$_SearchParamsToJson(_$_SearchParams instance) =>
       'current_location': instance.currentLocation,
       'place_filter': instance.placeFilter,
       'force_refresh': instance.forceRefresh,
+      'search_distance': instance.searchDistance,
     };

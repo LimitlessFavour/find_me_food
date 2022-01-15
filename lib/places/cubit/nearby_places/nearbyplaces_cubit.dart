@@ -1,9 +1,8 @@
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:find_me_food_bloc/places/helper/calculate_distance.dart';
 import 'package:find_me_food_bloc/places/models/nearby_places.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:meta/meta.dart';
 import 'package:nearby_places_repository/nearby_places_repository.dart';
 
 part 'nearbyplaces_cubit.g.dart';
@@ -25,6 +24,7 @@ class NearbyplacesCubit extends HydratedCubit<NearbyplacesState> {
       }
       emit(state.copyWith(status: NearbyPlacesStatus.loading));
 
+      if (searchParams.shouldUpdateLocations) {}
       final places = NearbyPlaces.fromRepository(
         await _nearbyPlacesRepository.nearbyPlaces(searchParams),
         searchParams,
@@ -41,6 +41,11 @@ class NearbyplacesCubit extends HydratedCubit<NearbyplacesState> {
         state.copyWith(status: NearbyPlacesStatus.failure),
       );
     }
+  }
+
+  Future<void> refreshPlaces() async {
+    //TODO check if there is connectivity
+    emit(state.copyWith(status: NearbyPlacesStatus.loading));
   }
 
   @override

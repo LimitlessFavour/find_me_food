@@ -7,13 +7,14 @@ part 'search_params.g.dart';
 part 'search_params.freezed.dart';
 
 @freezed
-class SearchParams with _$SearchParams {
+class SearchParams with _$SearchParams{
   factory SearchParams({
     @JsonKey(name: 'last_updated_location')
         required LatLng? lastUpdatedLocation,
     @JsonKey(name: 'current_location') required LatLng? currentLocation,
     @JsonKey(name: 'place_filter') required PlaceFilter placeFilter,
     @Default(false) @JsonKey(name: 'force_refresh') bool forceRefresh,
+    @Default(3000) @JsonKey(name: 'search_distance') num searchDistance,
   }) = _SearchParams;
 
   factory SearchParams.fromJson(Map<String, dynamic> json) =>
@@ -28,3 +29,5 @@ class SearchParams with _$SearchParams {
     ),
   );
 }
+
+

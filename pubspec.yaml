@@ -18,6 +18,9 @@ dependencies:
   intl: ^0.17.0
   hydrated_bloc: ^8.0.0
   json_annotation: ^4.0.1
+  path_provider: ^2.0.3
+  flutter_services_binding: ^0.1.0
+
   location_repository:
     path: packages/location_repository
   nearby_places_repository:
