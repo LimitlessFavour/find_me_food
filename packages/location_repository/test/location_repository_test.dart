@@ -38,6 +38,24 @@ void main() {
           throwsA(isA<LocationDisabledFailure>()));
     });
 
+    group('toJson/fromJson', () {
+      test('Position works properly', () {
+        expect(
+          LocatorPosition.fromMap(mockedPosition.toJson()),
+          isA<LocatorPosition>()
+              .having((p) => p.longitude, 'longitude', 10.98)
+              .having(
+                  (p) => p.latitude, 'latitude', 30.43)
+              .having(
+                (p) => p.accuracy,
+                'accuracy',
+                5.0,
+              )
+              .having((p) => p.speed, 'speed', 32.0),
+        );
+      });
+    });
+
     group('location service is enabled', () {
       setUp(() {
         when(() => mockedLocator.isLocationServiceEnabled())
@@ -54,7 +72,7 @@ void main() {
 
         final response = await locationRepository.currentLocation();
 
-        expect(response, isA<Position>());
+        expect(response, isA<LocatorPosition>());
       });
 
       test('throws PermissionsNotGranted when user denies', () {

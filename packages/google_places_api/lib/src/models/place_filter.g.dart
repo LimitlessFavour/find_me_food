@@ -6,48 +6,21 @@ part of 'place_filter.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_PlaceFilter _$_$_PlaceFilterFromJson(Map<String, dynamic> json) {
-  return _$_PlaceFilter(
-    latLng: json['lat_lng'] == null
-        ? null
-        : LatLng.fromJson(json['lat_lng'] as Map<String, dynamic>),
-    placeType: _$enumDecode(_$PlaceTypeEnumMap, json['place_type']),
-    radius: (json['radius'] as num?)?.toDouble() ?? 20000,
-  );
-}
+_$_PlaceFilter _$$_PlaceFilterFromJson(Map<String, dynamic> json) =>
+    _$_PlaceFilter(
+      latLng: json['lat_lng'] == null
+          ? null
+          : LatLng.fromJson(json['lat_lng'] as Map<String, dynamic>),
+      placeType: $enumDecode(_$PlaceTypeEnumMap, json['place_type']),
+      radius: (json['radius'] as num?)?.toDouble() ?? 20000,
+    );
 
-Map<String, dynamic> _$_$_PlaceFilterToJson(_$_PlaceFilter instance) =>
+Map<String, dynamic> _$$_PlaceFilterToJson(_$_PlaceFilter instance) =>
     <String, dynamic>{
-      'lat_lng': instance.latLng,
+      'lat_lng': locationToJson(instance.latLng),
       'place_type': _$PlaceTypeEnumMap[instance.placeType],
       'radius': instance.radius,
     };
-
-K _$enumDecode<K, V>(
-  Map<K, V> enumValues,
-  Object? source, {
-  K? unknownValue,
-}) {
-  if (source == null) {
-    throw ArgumentError(
-      'A value must be provided. Supported values: '
-      '${enumValues.values.join(', ')}',
-    );
-  }
-
-  return enumValues.entries.singleWhere(
-    (e) => e.value == source,
-    orElse: () {
-      if (unknownValue == null) {
-        throw ArgumentError(
-          '`$source` is not one of the supported values: '
-          '${enumValues.values.join(', ')}',
-        );
-      }
-      return MapEntry(unknownValue, enumValues.values.first);
-    },
-  ).key;
-}
 
 const _$PlaceTypeEnumMap = {
   PlaceType.restaurant: 'restaurant',
@@ -61,14 +34,12 @@ const _$PlaceTypeEnumMap = {
   PlaceType.liquor_store1: 'liquor_store1',
 };
 
-_$_LatLng _$_$_LatLngFromJson(Map<String, dynamic> json) {
-  return _$_LatLng(
-    latitude: (json['lat'] as num).toDouble(),
-    longitude: (json['lng'] as num).toDouble(),
-  );
-}
+_$_LatLng _$$_LatLngFromJson(Map<String, dynamic> json) => _$_LatLng(
+      latitude: (json['lat'] as num).toDouble(),
+      longitude: (json['lng'] as num).toDouble(),
+    );
 
-Map<String, dynamic> _$_$_LatLngToJson(_$_LatLng instance) => <String, dynamic>{
+Map<String, dynamic> _$$_LatLngToJson(_$_LatLng instance) => <String, dynamic>{
       'lat': instance.latitude,
       'lng': instance.longitude,
     };

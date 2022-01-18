@@ -5,7 +5,6 @@ import 'package:google_places_api/src/env.dart';
 import 'package:google_places_api/src/models/models.dart';
 import 'package:http/http.dart' as http;
 
-
 /// Exception thrown when getNearbyPlaces fails.
 class NearbyPlacesRequestFailure implements Exception {
   NearbyPlacesRequestFailure(this.reasonPhrase);
@@ -50,4 +49,3 @@ class NearbyPlacesApiClient {
     return places;
   }
 }
-

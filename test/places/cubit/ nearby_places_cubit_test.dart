@@ -70,30 +70,44 @@ void main() {
           );
         });
       });
+      test('copyWith works properly', () {
+        mockHydratedStorage(() {
+          final nearbyplacesCubit =
+              NearbyplacesCubit(mockNearbyPlacesRepository);
+
+          nearbyplacesCubit.state
+              // .copyWith(searchParams: mockSearchParams)
+              .copyWith(nearbyPlaces: mockNearbyPlaces);
+
+          expect(
+            nearbyplacesCubit.state.nearbyPlaces,
+            isA<NearbyPlaces>()
+                .having(
+                  (n) => n.places,
+                  'places',
+                  mockPlacesList,
+                )
+                .having(
+                  (n) => n.searchParams,
+                  'search parameters',
+                  mockSearchParams,
+                ),
+          );
+        });
+      });
     });
 
-    test('copyWith works properly', () {
-      mockHydratedStorage(() {
-        final nearbyplacesCubit = NearbyplacesCubit(mockNearbyPlacesRepository);
-
-        nearbyplacesCubit.state
-            .copyWith(searchParams: mockSearchParams)
-            .copyWith(nearbyPlaces: mockNearbyPlaces);
-
-        expect(
-          nearbyplacesCubit.state.nearbyPlaces,
-          isA<NearbyPlaces>()
-              .having(
-                (n) => n.places,
-                'places',
-                mockPlacesList,
-              )
-              .having(
-                (n) => n.searchParams,
-                'search parameters',
-                mockSearchParams,
-              ),
-        );
+    group('toJson/fromJson', () {
+      test('works properly', () {
+        mockHydratedStorage(() {
+          final nearbyplacesCubit =
+              NearbyplacesCubit(mockNearbyPlacesRepository);
+          expect(
+            nearbyplacesCubit
+                .fromJson(nearbyplacesCubit.toJson(nearbyplacesCubit.state)),
+            nearbyplacesCubit.state,
+          );
+        });
       });
     });
   });

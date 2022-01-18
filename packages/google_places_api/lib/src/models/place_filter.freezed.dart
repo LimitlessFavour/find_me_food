@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'place_filter.dart';
 
@@ -21,8 +22,10 @@ class _$PlaceFilterTearOff {
   const _$PlaceFilterTearOff();
 
   _PlaceFilter call(
-      {@JsonKey(name: 'lat_lng') required LatLng? latLng,
-      @JsonKey(name: 'place_type') required PlaceType placeType,
+      {@JsonKey(name: 'lat_lng', toJson: locationToJson)
+          required LatLng? latLng,
+      @JsonKey(name: 'place_type')
+          required PlaceType placeType,
       double radius = 20000}) {
     return _PlaceFilter(
       latLng: latLng,
@@ -31,7 +34,7 @@ class _$PlaceFilterTearOff {
     );
   }
 
-  PlaceFilter fromJson(Map<String, Object> json) {
+  PlaceFilter fromJson(Map<String, Object?> json) {
     return PlaceFilter.fromJson(json);
   }
 }
@@ -41,7 +44,7 @@ const $PlaceFilter = _$PlaceFilterTearOff();
 
 /// @nodoc
 mixin _$PlaceFilter {
-  @JsonKey(name: 'lat_lng')
+  @JsonKey(name: 'lat_lng', toJson: locationToJson)
   LatLng? get latLng => throw _privateConstructorUsedError;
   @JsonKey(name: 'place_type')
   PlaceType get placeType => throw _privateConstructorUsedError;
@@ -59,7 +62,7 @@ abstract class $PlaceFilterCopyWith<$Res> {
           PlaceFilter value, $Res Function(PlaceFilter) then) =
       _$PlaceFilterCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(name: 'lat_lng') LatLng? latLng,
+      {@JsonKey(name: 'lat_lng', toJson: locationToJson) LatLng? latLng,
       @JsonKey(name: 'place_type') PlaceType placeType,
       double radius});
 
@@ -116,7 +119,7 @@ abstract class _$PlaceFilterCopyWith<$Res>
       __$PlaceFilterCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@JsonKey(name: 'lat_lng') LatLng? latLng,
+      {@JsonKey(name: 'lat_lng', toJson: locationToJson) LatLng? latLng,
       @JsonKey(name: 'place_type') PlaceType placeType,
       double radius});
 
@@ -161,20 +164,20 @@ class __$PlaceFilterCopyWithImpl<$Res> extends _$PlaceFilterCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_PlaceFilter implements _PlaceFilter {
   _$_PlaceFilter(
-      {@JsonKey(name: 'lat_lng') required this.latLng,
+      {@JsonKey(name: 'lat_lng', toJson: locationToJson) required this.latLng,
       @JsonKey(name: 'place_type') required this.placeType,
       this.radius = 20000});
 
   factory _$_PlaceFilter.fromJson(Map<String, dynamic> json) =>
-      _$_$_PlaceFilterFromJson(json);
+      _$$_PlaceFilterFromJson(json);
 
   @override
-  @JsonKey(name: 'lat_lng')
+  @JsonKey(name: 'lat_lng', toJson: locationToJson)
   final LatLng? latLng;
   @override
   @JsonKey(name: 'place_type')
   final PlaceType placeType;
-  @JsonKey(defaultValue: 20000)
+  @JsonKey()
   @override
   final double radius;
 
@@ -186,22 +189,19 @@ class _$_PlaceFilter implements _PlaceFilter {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _PlaceFilter &&
-            (identical(other.latLng, latLng) ||
-                const DeepCollectionEquality().equals(other.latLng, latLng)) &&
-            (identical(other.placeType, placeType) ||
-                const DeepCollectionEquality()
-                    .equals(other.placeType, placeType)) &&
-            (identical(other.radius, radius) ||
-                const DeepCollectionEquality().equals(other.radius, radius)));
+        (other.runtimeType == runtimeType &&
+            other is _PlaceFilter &&
+            const DeepCollectionEquality().equals(other.latLng, latLng) &&
+            const DeepCollectionEquality().equals(other.placeType, placeType) &&
+            const DeepCollectionEquality().equals(other.radius, radius));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(latLng) ^
-      const DeepCollectionEquality().hash(placeType) ^
-      const DeepCollectionEquality().hash(radius);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(latLng),
+      const DeepCollectionEquality().hash(placeType),
+      const DeepCollectionEquality().hash(radius));
 
   @JsonKey(ignore: true)
   @override
@@ -210,27 +210,29 @@ class _$_PlaceFilter implements _PlaceFilter {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_PlaceFilterToJson(this);
+    return _$$_PlaceFilterToJson(this);
   }
 }
 
 abstract class _PlaceFilter implements PlaceFilter {
   factory _PlaceFilter(
-      {@JsonKey(name: 'lat_lng') required LatLng? latLng,
-      @JsonKey(name: 'place_type') required PlaceType placeType,
+      {@JsonKey(name: 'lat_lng', toJson: locationToJson)
+          required LatLng? latLng,
+      @JsonKey(name: 'place_type')
+          required PlaceType placeType,
       double radius}) = _$_PlaceFilter;
 
   factory _PlaceFilter.fromJson(Map<String, dynamic> json) =
       _$_PlaceFilter.fromJson;
 
   @override
-  @JsonKey(name: 'lat_lng')
-  LatLng? get latLng => throw _privateConstructorUsedError;
+  @JsonKey(name: 'lat_lng', toJson: locationToJson)
+  LatLng? get latLng;
   @override
   @JsonKey(name: 'place_type')
-  PlaceType get placeType => throw _privateConstructorUsedError;
+  PlaceType get placeType;
   @override
-  double get radius => throw _privateConstructorUsedError;
+  double get radius;
   @override
   @JsonKey(ignore: true)
   _$PlaceFilterCopyWith<_PlaceFilter> get copyWith =>
@@ -254,7 +256,7 @@ class _$LatLngTearOff {
     );
   }
 
-  LatLng fromJson(Map<String, Object> json) {
+  LatLng fromJson(Map<String, Object?> json) {
     return LatLng.fromJson(json);
   }
 }
@@ -354,7 +356,7 @@ class _$_LatLng implements _LatLng {
       @JsonKey(name: 'lng') required this.longitude});
 
   factory _$_LatLng.fromJson(Map<String, dynamic> json) =>
-      _$_$_LatLngFromJson(json);
+      _$$_LatLngFromJson(json);
 
   @override
   @JsonKey(name: 'lat')
@@ -371,20 +373,17 @@ class _$_LatLng implements _LatLng {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _LatLng &&
-            (identical(other.latitude, latitude) ||
-                const DeepCollectionEquality()
-                    .equals(other.latitude, latitude)) &&
-            (identical(other.longitude, longitude) ||
-                const DeepCollectionEquality()
-                    .equals(other.longitude, longitude)));
+        (other.runtimeType == runtimeType &&
+            other is _LatLng &&
+            const DeepCollectionEquality().equals(other.latitude, latitude) &&
+            const DeepCollectionEquality().equals(other.longitude, longitude));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(latitude) ^
-      const DeepCollectionEquality().hash(longitude);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(latitude),
+      const DeepCollectionEquality().hash(longitude));
 
   @JsonKey(ignore: true)
   @override
@@ -393,7 +392,7 @@ class _$_LatLng implements _LatLng {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_LatLngToJson(this);
+    return _$$_LatLngToJson(this);
   }
 }
 
@@ -406,10 +405,10 @@ abstract class _LatLng implements LatLng {
 
   @override
   @JsonKey(name: 'lat')
-  double get latitude => throw _privateConstructorUsedError;
+  double get latitude;
   @override
   @JsonKey(name: 'lng')
-  double get longitude => throw _privateConstructorUsedError;
+  double get longitude;
   @override
   @JsonKey(ignore: true)
   _$LatLngCopyWith<_LatLng> get copyWith => throw _privateConstructorUsedError;

@@ -40,7 +40,7 @@ class LocatorPosition {
     );
   }
 
-  static Position fromMap(dynamic message) {
+  static LocatorPosition fromMap(dynamic message) {
     final Map<dynamic, dynamic> positionMap = message;
 
     if (!positionMap.containsKey('latitude')) {
@@ -58,7 +58,7 @@ class LocatorPosition {
             isUtc: true)
         : null;
 
-    return Position(
+    return LocatorPosition(
       latitude: positionMap['latitude'],
       longitude: positionMap['longitude'],
       timestamp: timestamp,

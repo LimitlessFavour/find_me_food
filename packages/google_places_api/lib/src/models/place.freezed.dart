@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'place.dart';
 
@@ -22,8 +23,10 @@ class _$NearbyPlacesResultsTearOff {
 
   _NearbyPlacesResults call(
       {String status = '',
-      @JsonKey(name: 'next_page_token') String? nextPageToken,
-      @JsonKey(name: 'results') List<Place> places = const []}) {
+      @JsonKey(name: 'next_page_token')
+          String? nextPageToken,
+      @JsonKey(name: 'results', toJson: toJsonPlaces)
+          List<Place> places = const []}) {
     return _NearbyPlacesResults(
       status: status,
       nextPageToken: nextPageToken,
@@ -31,7 +34,7 @@ class _$NearbyPlacesResultsTearOff {
     );
   }
 
-  NearbyPlacesResults fromJson(Map<String, Object> json) {
+  NearbyPlacesResults fromJson(Map<String, Object?> json) {
     return NearbyPlacesResults.fromJson(json);
   }
 }
@@ -44,7 +47,7 @@ mixin _$NearbyPlacesResults {
   String get status => throw _privateConstructorUsedError;
   @JsonKey(name: 'next_page_token')
   String? get nextPageToken => throw _privateConstructorUsedError;
-  @JsonKey(name: 'results')
+  @JsonKey(name: 'results', toJson: toJsonPlaces)
   List<Place> get places => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -61,7 +64,7 @@ abstract class $NearbyPlacesResultsCopyWith<$Res> {
   $Res call(
       {String status,
       @JsonKey(name: 'next_page_token') String? nextPageToken,
-      @JsonKey(name: 'results') List<Place> places});
+      @JsonKey(name: 'results', toJson: toJsonPlaces) List<Place> places});
 }
 
 /// @nodoc
@@ -106,7 +109,7 @@ abstract class _$NearbyPlacesResultsCopyWith<$Res>
   $Res call(
       {String status,
       @JsonKey(name: 'next_page_token') String? nextPageToken,
-      @JsonKey(name: 'results') List<Place> places});
+      @JsonKey(name: 'results', toJson: toJsonPlaces) List<Place> places});
 }
 
 /// @nodoc
@@ -145,23 +148,24 @@ class __$NearbyPlacesResultsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_NearbyPlacesResults implements _NearbyPlacesResults {
-  _$_NearbyPlacesResults(
+class _$_NearbyPlacesResults extends _NearbyPlacesResults {
+  const _$_NearbyPlacesResults(
       {this.status = '',
       @JsonKey(name: 'next_page_token') this.nextPageToken,
-      @JsonKey(name: 'results') this.places = const []});
+      @JsonKey(name: 'results', toJson: toJsonPlaces) this.places = const []})
+      : super._();
 
   factory _$_NearbyPlacesResults.fromJson(Map<String, dynamic> json) =>
-      _$_$_NearbyPlacesResultsFromJson(json);
+      _$$_NearbyPlacesResultsFromJson(json);
 
-  @JsonKey(defaultValue: '')
+  @JsonKey()
   @override
   final String status;
   @override
   @JsonKey(name: 'next_page_token')
   final String? nextPageToken;
   @override
-  @JsonKey(name: 'results')
+  @JsonKey(name: 'results', toJson: toJsonPlaces)
   final List<Place> places;
 
   @override
@@ -172,22 +176,20 @@ class _$_NearbyPlacesResults implements _NearbyPlacesResults {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _NearbyPlacesResults &&
-            (identical(other.status, status) ||
-                const DeepCollectionEquality().equals(other.status, status)) &&
-            (identical(other.nextPageToken, nextPageToken) ||
-                const DeepCollectionEquality()
-                    .equals(other.nextPageToken, nextPageToken)) &&
-            (identical(other.places, places) ||
-                const DeepCollectionEquality().equals(other.places, places)));
+        (other.runtimeType == runtimeType &&
+            other is _NearbyPlacesResults &&
+            const DeepCollectionEquality().equals(other.status, status) &&
+            const DeepCollectionEquality()
+                .equals(other.nextPageToken, nextPageToken) &&
+            const DeepCollectionEquality().equals(other.places, places));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(status) ^
-      const DeepCollectionEquality().hash(nextPageToken) ^
-      const DeepCollectionEquality().hash(places);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(status),
+      const DeepCollectionEquality().hash(nextPageToken),
+      const DeepCollectionEquality().hash(places));
 
   @JsonKey(ignore: true)
   @override
@@ -197,27 +199,29 @@ class _$_NearbyPlacesResults implements _NearbyPlacesResults {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_NearbyPlacesResultsToJson(this);
+    return _$$_NearbyPlacesResultsToJson(this);
   }
 }
 
-abstract class _NearbyPlacesResults implements NearbyPlacesResults {
-  factory _NearbyPlacesResults(
-      {String status,
-      @JsonKey(name: 'next_page_token') String? nextPageToken,
-      @JsonKey(name: 'results') List<Place> places}) = _$_NearbyPlacesResults;
+abstract class _NearbyPlacesResults extends NearbyPlacesResults {
+  const factory _NearbyPlacesResults(
+          {String status,
+          @JsonKey(name: 'next_page_token') String? nextPageToken,
+          @JsonKey(name: 'results', toJson: toJsonPlaces) List<Place> places}) =
+      _$_NearbyPlacesResults;
+  const _NearbyPlacesResults._() : super._();
 
   factory _NearbyPlacesResults.fromJson(Map<String, dynamic> json) =
       _$_NearbyPlacesResults.fromJson;
 
   @override
-  String get status => throw _privateConstructorUsedError;
+  String get status;
   @override
   @JsonKey(name: 'next_page_token')
-  String? get nextPageToken => throw _privateConstructorUsedError;
+  String? get nextPageToken;
   @override
-  @JsonKey(name: 'results')
-  List<Place> get places => throw _privateConstructorUsedError;
+  @JsonKey(name: 'results', toJson: toJsonPlaces)
+  List<Place> get places;
   @override
   @JsonKey(ignore: true)
   _$NearbyPlacesResultsCopyWith<_NearbyPlacesResults> get copyWith =>
@@ -234,14 +238,21 @@ class _$PlaceTearOff {
 
   _Place call(
       {String name = '',
-      @JsonKey(name: 'opening_hours') OpeningHours? openingHours,
-      @JsonKey(name: 'geometry') Geometry? geometry,
-      @JsonKey(name: 'photos') List<Photos> photos = const [],
-      @JsonKey(name: 'place_id') String? placeId,
-      @JsonKey(name: 'rating') dynamic rating = 0,
+      @JsonKey(name: 'opening_hours', toJson: openingHoursToJson)
+          OpeningHours? openingHours,
+      @JsonKey(name: 'geometry', toJson: geometryToJson)
+          Geometry? geometry,
+      @JsonKey(name: 'photos', toJson: toJsonPhotos)
+          List<Photo> photos = const [],
+      @JsonKey(name: 'place_id')
+          String? placeId,
+      @JsonKey(name: 'rating')
+          dynamic rating = 0,
       List<String> types = const [],
-      @JsonKey(name: 'user_ratings_total') dynamic userRatingsTotal = 0,
-      @JsonKey(name: 'vicinity') String? vicinity}) {
+      @JsonKey(name: 'user_ratings_total')
+          dynamic userRatingsTotal = 0,
+      @JsonKey(name: 'vicinity')
+          String? vicinity}) {
     return _Place(
       name: name,
       openingHours: openingHours,
@@ -255,7 +266,7 @@ class _$PlaceTearOff {
     );
   }
 
-  Place fromJson(Map<String, Object> json) {
+  Place fromJson(Map<String, Object?> json) {
     return Place.fromJson(json);
   }
 }
@@ -266,12 +277,12 @@ const $Place = _$PlaceTearOff();
 /// @nodoc
 mixin _$Place {
   String get name => throw _privateConstructorUsedError;
-  @JsonKey(name: 'opening_hours')
+  @JsonKey(name: 'opening_hours', toJson: openingHoursToJson)
   OpeningHours? get openingHours => throw _privateConstructorUsedError;
-  @JsonKey(name: 'geometry')
+  @JsonKey(name: 'geometry', toJson: geometryToJson)
   Geometry? get geometry => throw _privateConstructorUsedError;
-  @JsonKey(name: 'photos')
-  List<Photos> get photos => throw _privateConstructorUsedError;
+  @JsonKey(name: 'photos', toJson: toJsonPhotos)
+  List<Photo> get photos => throw _privateConstructorUsedError;
   @JsonKey(name: 'place_id')
   String? get placeId => throw _privateConstructorUsedError;
   @JsonKey(name: 'rating')
@@ -293,14 +304,21 @@ abstract class $PlaceCopyWith<$Res> {
       _$PlaceCopyWithImpl<$Res>;
   $Res call(
       {String name,
-      @JsonKey(name: 'opening_hours') OpeningHours? openingHours,
-      @JsonKey(name: 'geometry') Geometry? geometry,
-      @JsonKey(name: 'photos') List<Photos> photos,
-      @JsonKey(name: 'place_id') String? placeId,
-      @JsonKey(name: 'rating') dynamic rating,
+      @JsonKey(name: 'opening_hours', toJson: openingHoursToJson)
+          OpeningHours? openingHours,
+      @JsonKey(name: 'geometry', toJson: geometryToJson)
+          Geometry? geometry,
+      @JsonKey(name: 'photos', toJson: toJsonPhotos)
+          List<Photo> photos,
+      @JsonKey(name: 'place_id')
+          String? placeId,
+      @JsonKey(name: 'rating')
+          dynamic rating,
       List<String> types,
-      @JsonKey(name: 'user_ratings_total') dynamic userRatingsTotal,
-      @JsonKey(name: 'vicinity') String? vicinity});
+      @JsonKey(name: 'user_ratings_total')
+          dynamic userRatingsTotal,
+      @JsonKey(name: 'vicinity')
+          String? vicinity});
 
   $OpeningHoursCopyWith<$Res>? get openingHours;
   $GeometryCopyWith<$Res>? get geometry;
@@ -342,7 +360,7 @@ class _$PlaceCopyWithImpl<$Res> implements $PlaceCopyWith<$Res> {
       photos: photos == freezed
           ? _value.photos
           : photos // ignore: cast_nullable_to_non_nullable
-              as List<Photos>,
+              as List<Photo>,
       placeId: placeId == freezed
           ? _value.placeId
           : placeId // ignore: cast_nullable_to_non_nullable
@@ -396,14 +414,21 @@ abstract class _$PlaceCopyWith<$Res> implements $PlaceCopyWith<$Res> {
   @override
   $Res call(
       {String name,
-      @JsonKey(name: 'opening_hours') OpeningHours? openingHours,
-      @JsonKey(name: 'geometry') Geometry? geometry,
-      @JsonKey(name: 'photos') List<Photos> photos,
-      @JsonKey(name: 'place_id') String? placeId,
-      @JsonKey(name: 'rating') dynamic rating,
+      @JsonKey(name: 'opening_hours', toJson: openingHoursToJson)
+          OpeningHours? openingHours,
+      @JsonKey(name: 'geometry', toJson: geometryToJson)
+          Geometry? geometry,
+      @JsonKey(name: 'photos', toJson: toJsonPhotos)
+          List<Photo> photos,
+      @JsonKey(name: 'place_id')
+          String? placeId,
+      @JsonKey(name: 'rating')
+          dynamic rating,
       List<String> types,
-      @JsonKey(name: 'user_ratings_total') dynamic userRatingsTotal,
-      @JsonKey(name: 'vicinity') String? vicinity});
+      @JsonKey(name: 'user_ratings_total')
+          dynamic userRatingsTotal,
+      @JsonKey(name: 'vicinity')
+          String? vicinity});
 
   @override
   $OpeningHoursCopyWith<$Res>? get openingHours;
@@ -448,7 +473,7 @@ class __$PlaceCopyWithImpl<$Res> extends _$PlaceCopyWithImpl<$Res>
       photos: photos == freezed
           ? _value.photos
           : photos // ignore: cast_nullable_to_non_nullable
-              as List<Photos>,
+              as List<Photo>,
       placeId: placeId == freezed
           ? _value.placeId
           : placeId // ignore: cast_nullable_to_non_nullable
@@ -478,37 +503,44 @@ class __$PlaceCopyWithImpl<$Res> extends _$PlaceCopyWithImpl<$Res>
 class _$_Place implements _Place {
   _$_Place(
       {this.name = '',
-      @JsonKey(name: 'opening_hours') this.openingHours,
-      @JsonKey(name: 'geometry') this.geometry,
-      @JsonKey(name: 'photos') this.photos = const [],
-      @JsonKey(name: 'place_id') this.placeId,
-      @JsonKey(name: 'rating') this.rating = 0,
+      @JsonKey(name: 'opening_hours', toJson: openingHoursToJson)
+          this.openingHours,
+      @JsonKey(name: 'geometry', toJson: geometryToJson)
+          this.geometry,
+      @JsonKey(name: 'photos', toJson: toJsonPhotos)
+          this.photos = const [],
+      @JsonKey(name: 'place_id')
+          this.placeId,
+      @JsonKey(name: 'rating')
+          this.rating = 0,
       this.types = const [],
-      @JsonKey(name: 'user_ratings_total') this.userRatingsTotal = 0,
-      @JsonKey(name: 'vicinity') this.vicinity});
+      @JsonKey(name: 'user_ratings_total')
+          this.userRatingsTotal = 0,
+      @JsonKey(name: 'vicinity')
+          this.vicinity});
 
   factory _$_Place.fromJson(Map<String, dynamic> json) =>
-      _$_$_PlaceFromJson(json);
+      _$$_PlaceFromJson(json);
 
-  @JsonKey(defaultValue: '')
+  @JsonKey()
   @override
   final String name;
   @override
-  @JsonKey(name: 'opening_hours')
+  @JsonKey(name: 'opening_hours', toJson: openingHoursToJson)
   final OpeningHours? openingHours;
   @override
-  @JsonKey(name: 'geometry')
+  @JsonKey(name: 'geometry', toJson: geometryToJson)
   final Geometry? geometry;
   @override
-  @JsonKey(name: 'photos')
-  final List<Photos> photos;
+  @JsonKey(name: 'photos', toJson: toJsonPhotos)
+  final List<Photo> photos;
   @override
   @JsonKey(name: 'place_id')
   final String? placeId;
   @override
   @JsonKey(name: 'rating')
   final dynamic rating;
-  @JsonKey(defaultValue: const [])
+  @JsonKey()
   @override
   final List<String> types;
   @override
@@ -526,44 +558,33 @@ class _$_Place implements _Place {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Place &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)) &&
-            (identical(other.openingHours, openingHours) ||
-                const DeepCollectionEquality()
-                    .equals(other.openingHours, openingHours)) &&
-            (identical(other.geometry, geometry) ||
-                const DeepCollectionEquality()
-                    .equals(other.geometry, geometry)) &&
-            (identical(other.photos, photos) ||
-                const DeepCollectionEquality().equals(other.photos, photos)) &&
-            (identical(other.placeId, placeId) ||
-                const DeepCollectionEquality()
-                    .equals(other.placeId, placeId)) &&
-            (identical(other.rating, rating) ||
-                const DeepCollectionEquality().equals(other.rating, rating)) &&
-            (identical(other.types, types) ||
-                const DeepCollectionEquality().equals(other.types, types)) &&
-            (identical(other.userRatingsTotal, userRatingsTotal) ||
-                const DeepCollectionEquality()
-                    .equals(other.userRatingsTotal, userRatingsTotal)) &&
-            (identical(other.vicinity, vicinity) ||
-                const DeepCollectionEquality()
-                    .equals(other.vicinity, vicinity)));
+        (other.runtimeType == runtimeType &&
+            other is _Place &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality()
+                .equals(other.openingHours, openingHours) &&
+            const DeepCollectionEquality().equals(other.geometry, geometry) &&
+            const DeepCollectionEquality().equals(other.photos, photos) &&
+            const DeepCollectionEquality().equals(other.placeId, placeId) &&
+            const DeepCollectionEquality().equals(other.rating, rating) &&
+            const DeepCollectionEquality().equals(other.types, types) &&
+            const DeepCollectionEquality()
+                .equals(other.userRatingsTotal, userRatingsTotal) &&
+            const DeepCollectionEquality().equals(other.vicinity, vicinity));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(openingHours) ^
-      const DeepCollectionEquality().hash(geometry) ^
-      const DeepCollectionEquality().hash(photos) ^
-      const DeepCollectionEquality().hash(placeId) ^
-      const DeepCollectionEquality().hash(rating) ^
-      const DeepCollectionEquality().hash(types) ^
-      const DeepCollectionEquality().hash(userRatingsTotal) ^
-      const DeepCollectionEquality().hash(vicinity);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(openingHours),
+      const DeepCollectionEquality().hash(geometry),
+      const DeepCollectionEquality().hash(photos),
+      const DeepCollectionEquality().hash(placeId),
+      const DeepCollectionEquality().hash(rating),
+      const DeepCollectionEquality().hash(types),
+      const DeepCollectionEquality().hash(userRatingsTotal),
+      const DeepCollectionEquality().hash(vicinity));
 
   @JsonKey(ignore: true)
   @override
@@ -572,49 +593,56 @@ class _$_Place implements _Place {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_PlaceToJson(this);
+    return _$$_PlaceToJson(this);
   }
 }
 
 abstract class _Place implements Place {
   factory _Place(
       {String name,
-      @JsonKey(name: 'opening_hours') OpeningHours? openingHours,
-      @JsonKey(name: 'geometry') Geometry? geometry,
-      @JsonKey(name: 'photos') List<Photos> photos,
-      @JsonKey(name: 'place_id') String? placeId,
-      @JsonKey(name: 'rating') dynamic rating,
+      @JsonKey(name: 'opening_hours', toJson: openingHoursToJson)
+          OpeningHours? openingHours,
+      @JsonKey(name: 'geometry', toJson: geometryToJson)
+          Geometry? geometry,
+      @JsonKey(name: 'photos', toJson: toJsonPhotos)
+          List<Photo> photos,
+      @JsonKey(name: 'place_id')
+          String? placeId,
+      @JsonKey(name: 'rating')
+          dynamic rating,
       List<String> types,
-      @JsonKey(name: 'user_ratings_total') dynamic userRatingsTotal,
-      @JsonKey(name: 'vicinity') String? vicinity}) = _$_Place;
+      @JsonKey(name: 'user_ratings_total')
+          dynamic userRatingsTotal,
+      @JsonKey(name: 'vicinity')
+          String? vicinity}) = _$_Place;
 
   factory _Place.fromJson(Map<String, dynamic> json) = _$_Place.fromJson;
 
   @override
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @override
-  @JsonKey(name: 'opening_hours')
-  OpeningHours? get openingHours => throw _privateConstructorUsedError;
+  @JsonKey(name: 'opening_hours', toJson: openingHoursToJson)
+  OpeningHours? get openingHours;
   @override
-  @JsonKey(name: 'geometry')
-  Geometry? get geometry => throw _privateConstructorUsedError;
+  @JsonKey(name: 'geometry', toJson: geometryToJson)
+  Geometry? get geometry;
   @override
-  @JsonKey(name: 'photos')
-  List<Photos> get photos => throw _privateConstructorUsedError;
+  @JsonKey(name: 'photos', toJson: toJsonPhotos)
+  List<Photo> get photos;
   @override
   @JsonKey(name: 'place_id')
-  String? get placeId => throw _privateConstructorUsedError;
+  String? get placeId;
   @override
   @JsonKey(name: 'rating')
-  dynamic get rating => throw _privateConstructorUsedError;
+  dynamic get rating;
   @override
-  List<String> get types => throw _privateConstructorUsedError;
+  List<String> get types;
   @override
   @JsonKey(name: 'user_ratings_total')
-  dynamic get userRatingsTotal => throw _privateConstructorUsedError;
+  dynamic get userRatingsTotal;
   @override
   @JsonKey(name: 'vicinity')
-  String? get vicinity => throw _privateConstructorUsedError;
+  String? get vicinity;
   @override
   @JsonKey(ignore: true)
   _$PlaceCopyWith<_Place> get copyWith => throw _privateConstructorUsedError;
@@ -634,7 +662,7 @@ class _$OpeningHoursTearOff {
     );
   }
 
-  OpeningHours fromJson(Map<String, Object> json) {
+  OpeningHours fromJson(Map<String, Object?> json) {
     return OpeningHours.fromJson(json);
   }
 }
@@ -717,11 +745,12 @@ class __$OpeningHoursCopyWithImpl<$Res> extends _$OpeningHoursCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_OpeningHours implements _OpeningHours {
-  _$_OpeningHours({@JsonKey(name: 'open_now') this.openNow = false});
+class _$_OpeningHours extends _OpeningHours {
+  const _$_OpeningHours({@JsonKey(name: 'open_now') this.openNow = false})
+      : super._();
 
   factory _$_OpeningHours.fromJson(Map<String, dynamic> json) =>
-      _$_$_OpeningHoursFromJson(json);
+      _$$_OpeningHoursFromJson(json);
 
   @override
   @JsonKey(name: 'open_now')
@@ -735,14 +764,14 @@ class _$_OpeningHours implements _OpeningHours {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _OpeningHours &&
-            (identical(other.openNow, openNow) ||
-                const DeepCollectionEquality().equals(other.openNow, openNow)));
+        (other.runtimeType == runtimeType &&
+            other is _OpeningHours &&
+            const DeepCollectionEquality().equals(other.openNow, openNow));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(openNow);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(openNow));
 
   @JsonKey(ignore: true)
   @override
@@ -751,20 +780,21 @@ class _$_OpeningHours implements _OpeningHours {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_OpeningHoursToJson(this);
+    return _$$_OpeningHoursToJson(this);
   }
 }
 
-abstract class _OpeningHours implements OpeningHours {
-  factory _OpeningHours({@JsonKey(name: 'open_now') bool openNow}) =
+abstract class _OpeningHours extends OpeningHours {
+  const factory _OpeningHours({@JsonKey(name: 'open_now') bool openNow}) =
       _$_OpeningHours;
+  const _OpeningHours._() : super._();
 
   factory _OpeningHours.fromJson(Map<String, dynamic> json) =
       _$_OpeningHours.fromJson;
 
   @override
   @JsonKey(name: 'open_now')
-  bool get openNow => throw _privateConstructorUsedError;
+  bool get openNow;
   @override
   @JsonKey(ignore: true)
   _$OpeningHoursCopyWith<_OpeningHours> get copyWith =>
@@ -779,13 +809,14 @@ Geometry _$GeometryFromJson(Map<String, dynamic> json) {
 class _$GeometryTearOff {
   const _$GeometryTearOff();
 
-  _Geometry call({@JsonKey(name: 'location') LatLng? location}) {
+  _Geometry call(
+      {@JsonKey(name: 'location', toJson: locationToJson) LatLng? location}) {
     return _Geometry(
       location: location,
     );
   }
 
-  Geometry fromJson(Map<String, Object> json) {
+  Geometry fromJson(Map<String, Object?> json) {
     return Geometry.fromJson(json);
   }
 }
@@ -795,7 +826,7 @@ const $Geometry = _$GeometryTearOff();
 
 /// @nodoc
 mixin _$Geometry {
-  @JsonKey(name: 'location')
+  @JsonKey(name: 'location', toJson: locationToJson)
   LatLng? get location => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -808,7 +839,8 @@ mixin _$Geometry {
 abstract class $GeometryCopyWith<$Res> {
   factory $GeometryCopyWith(Geometry value, $Res Function(Geometry) then) =
       _$GeometryCopyWithImpl<$Res>;
-  $Res call({@JsonKey(name: 'location') LatLng? location});
+  $Res call(
+      {@JsonKey(name: 'location', toJson: locationToJson) LatLng? location});
 
   $LatLngCopyWith<$Res>? get location;
 }
@@ -850,7 +882,8 @@ abstract class _$GeometryCopyWith<$Res> implements $GeometryCopyWith<$Res> {
   factory _$GeometryCopyWith(_Geometry value, $Res Function(_Geometry) then) =
       __$GeometryCopyWithImpl<$Res>;
   @override
-  $Res call({@JsonKey(name: 'location') LatLng? location});
+  $Res call(
+      {@JsonKey(name: 'location', toJson: locationToJson) LatLng? location});
 
   @override
   $LatLngCopyWith<$Res>? get location;
@@ -881,13 +914,14 @@ class __$GeometryCopyWithImpl<$Res> extends _$GeometryCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Geometry implements _Geometry {
-  _$_Geometry({@JsonKey(name: 'location') this.location});
+  _$_Geometry(
+      {@JsonKey(name: 'location', toJson: locationToJson) this.location});
 
   factory _$_Geometry.fromJson(Map<String, dynamic> json) =>
-      _$_$_GeometryFromJson(json);
+      _$$_GeometryFromJson(json);
 
   @override
-  @JsonKey(name: 'location')
+  @JsonKey(name: 'location', toJson: locationToJson)
   final LatLng? location;
 
   @override
@@ -898,15 +932,14 @@ class _$_Geometry implements _Geometry {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Geometry &&
-            (identical(other.location, location) ||
-                const DeepCollectionEquality()
-                    .equals(other.location, location)));
+        (other.runtimeType == runtimeType &&
+            other is _Geometry &&
+            const DeepCollectionEquality().equals(other.location, location));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(location);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(location));
 
   @JsonKey(ignore: true)
   @override
@@ -915,54 +948,55 @@ class _$_Geometry implements _Geometry {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_GeometryToJson(this);
+    return _$$_GeometryToJson(this);
   }
 }
 
 abstract class _Geometry implements Geometry {
-  factory _Geometry({@JsonKey(name: 'location') LatLng? location}) =
-      _$_Geometry;
+  factory _Geometry(
+      {@JsonKey(name: 'location', toJson: locationToJson)
+          LatLng? location}) = _$_Geometry;
 
   factory _Geometry.fromJson(Map<String, dynamic> json) = _$_Geometry.fromJson;
 
   @override
-  @JsonKey(name: 'location')
-  LatLng? get location => throw _privateConstructorUsedError;
+  @JsonKey(name: 'location', toJson: locationToJson)
+  LatLng? get location;
   @override
   @JsonKey(ignore: true)
   _$GeometryCopyWith<_Geometry> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-Photos _$PhotosFromJson(Map<String, dynamic> json) {
-  return _Photos.fromJson(json);
+Photo _$PhotoFromJson(Map<String, dynamic> json) {
+  return _Photo.fromJson(json);
 }
 
 /// @nodoc
-class _$PhotosTearOff {
-  const _$PhotosTearOff();
+class _$PhotoTearOff {
+  const _$PhotoTearOff();
 
-  _Photos call(
+  _Photo call(
       {@JsonKey(name: 'height') dynamic height = 0,
       @JsonKey(name: 'photo_reference') String? photoReference,
       @JsonKey(name: 'width') dynamic width = 0}) {
-    return _Photos(
+    return _Photo(
       height: height,
       photoReference: photoReference,
       width: width,
     );
   }
 
-  Photos fromJson(Map<String, Object> json) {
-    return Photos.fromJson(json);
+  Photo fromJson(Map<String, Object?> json) {
+    return Photo.fromJson(json);
   }
 }
 
 /// @nodoc
-const $Photos = _$PhotosTearOff();
+const $Photo = _$PhotoTearOff();
 
 /// @nodoc
-mixin _$Photos {
+mixin _$Photo {
   @JsonKey(name: 'height')
   dynamic get height => throw _privateConstructorUsedError;
   @JsonKey(name: 'photo_reference')
@@ -972,13 +1006,13 @@ mixin _$Photos {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $PhotosCopyWith<Photos> get copyWith => throw _privateConstructorUsedError;
+  $PhotoCopyWith<Photo> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PhotosCopyWith<$Res> {
-  factory $PhotosCopyWith(Photos value, $Res Function(Photos) then) =
-      _$PhotosCopyWithImpl<$Res>;
+abstract class $PhotoCopyWith<$Res> {
+  factory $PhotoCopyWith(Photo value, $Res Function(Photo) then) =
+      _$PhotoCopyWithImpl<$Res>;
   $Res call(
       {@JsonKey(name: 'height') dynamic height,
       @JsonKey(name: 'photo_reference') String? photoReference,
@@ -986,12 +1020,12 @@ abstract class $PhotosCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$PhotosCopyWithImpl<$Res> implements $PhotosCopyWith<$Res> {
-  _$PhotosCopyWithImpl(this._value, this._then);
+class _$PhotoCopyWithImpl<$Res> implements $PhotoCopyWith<$Res> {
+  _$PhotoCopyWithImpl(this._value, this._then);
 
-  final Photos _value;
+  final Photo _value;
   // ignore: unused_field
-  final $Res Function(Photos) _then;
+  final $Res Function(Photo) _then;
 
   @override
   $Res call({
@@ -1017,9 +1051,9 @@ class _$PhotosCopyWithImpl<$Res> implements $PhotosCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$PhotosCopyWith<$Res> implements $PhotosCopyWith<$Res> {
-  factory _$PhotosCopyWith(_Photos value, $Res Function(_Photos) then) =
-      __$PhotosCopyWithImpl<$Res>;
+abstract class _$PhotoCopyWith<$Res> implements $PhotoCopyWith<$Res> {
+  factory _$PhotoCopyWith(_Photo value, $Res Function(_Photo) then) =
+      __$PhotoCopyWithImpl<$Res>;
   @override
   $Res call(
       {@JsonKey(name: 'height') dynamic height,
@@ -1028,13 +1062,13 @@ abstract class _$PhotosCopyWith<$Res> implements $PhotosCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$PhotosCopyWithImpl<$Res> extends _$PhotosCopyWithImpl<$Res>
-    implements _$PhotosCopyWith<$Res> {
-  __$PhotosCopyWithImpl(_Photos _value, $Res Function(_Photos) _then)
-      : super(_value, (v) => _then(v as _Photos));
+class __$PhotoCopyWithImpl<$Res> extends _$PhotoCopyWithImpl<$Res>
+    implements _$PhotoCopyWith<$Res> {
+  __$PhotoCopyWithImpl(_Photo _value, $Res Function(_Photo) _then)
+      : super(_value, (v) => _then(v as _Photo));
 
   @override
-  _Photos get _value => super._value as _Photos;
+  _Photo get _value => super._value as _Photo;
 
   @override
   $Res call({
@@ -1042,7 +1076,7 @@ class __$PhotosCopyWithImpl<$Res> extends _$PhotosCopyWithImpl<$Res>
     Object? photoReference = freezed,
     Object? width = freezed,
   }) {
-    return _then(_Photos(
+    return _then(_Photo(
       height: height == freezed
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
@@ -1061,14 +1095,14 @@ class __$PhotosCopyWithImpl<$Res> extends _$PhotosCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Photos implements _Photos {
-  _$_Photos(
+class _$_Photo implements _Photo {
+  _$_Photo(
       {@JsonKey(name: 'height') this.height = 0,
       @JsonKey(name: 'photo_reference') this.photoReference,
       @JsonKey(name: 'width') this.width = 0});
 
-  factory _$_Photos.fromJson(Map<String, dynamic> json) =>
-      _$_$_PhotosFromJson(json);
+  factory _$_Photo.fromJson(Map<String, dynamic> json) =>
+      _$$_PhotoFromJson(json);
 
   @override
   @JsonKey(name: 'height')
@@ -1082,58 +1116,56 @@ class _$_Photos implements _Photos {
 
   @override
   String toString() {
-    return 'Photos(height: $height, photoReference: $photoReference, width: $width)';
+    return 'Photo(height: $height, photoReference: $photoReference, width: $width)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Photos &&
-            (identical(other.height, height) ||
-                const DeepCollectionEquality().equals(other.height, height)) &&
-            (identical(other.photoReference, photoReference) ||
-                const DeepCollectionEquality()
-                    .equals(other.photoReference, photoReference)) &&
-            (identical(other.width, width) ||
-                const DeepCollectionEquality().equals(other.width, width)));
+        (other.runtimeType == runtimeType &&
+            other is _Photo &&
+            const DeepCollectionEquality().equals(other.height, height) &&
+            const DeepCollectionEquality()
+                .equals(other.photoReference, photoReference) &&
+            const DeepCollectionEquality().equals(other.width, width));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(height) ^
-      const DeepCollectionEquality().hash(photoReference) ^
-      const DeepCollectionEquality().hash(width);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(height),
+      const DeepCollectionEquality().hash(photoReference),
+      const DeepCollectionEquality().hash(width));
 
   @JsonKey(ignore: true)
   @override
-  _$PhotosCopyWith<_Photos> get copyWith =>
-      __$PhotosCopyWithImpl<_Photos>(this, _$identity);
+  _$PhotoCopyWith<_Photo> get copyWith =>
+      __$PhotoCopyWithImpl<_Photo>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_PhotosToJson(this);
+    return _$$_PhotoToJson(this);
   }
 }
 
-abstract class _Photos implements Photos {
-  factory _Photos(
+abstract class _Photo implements Photo {
+  factory _Photo(
       {@JsonKey(name: 'height') dynamic height,
       @JsonKey(name: 'photo_reference') String? photoReference,
-      @JsonKey(name: 'width') dynamic width}) = _$_Photos;
+      @JsonKey(name: 'width') dynamic width}) = _$_Photo;
 
-  factory _Photos.fromJson(Map<String, dynamic> json) = _$_Photos.fromJson;
+  factory _Photo.fromJson(Map<String, dynamic> json) = _$_Photo.fromJson;
 
   @override
   @JsonKey(name: 'height')
-  dynamic get height => throw _privateConstructorUsedError;
+  dynamic get height;
   @override
   @JsonKey(name: 'photo_reference')
-  String? get photoReference => throw _privateConstructorUsedError;
+  String? get photoReference;
   @override
   @JsonKey(name: 'width')
-  dynamic get width => throw _privateConstructorUsedError;
+  dynamic get width;
   @override
   @JsonKey(ignore: true)
-  _$PhotosCopyWith<_Photos> get copyWith => throw _privateConstructorUsedError;
+  _$PhotoCopyWith<_Photo> get copyWith => throw _privateConstructorUsedError;
 }

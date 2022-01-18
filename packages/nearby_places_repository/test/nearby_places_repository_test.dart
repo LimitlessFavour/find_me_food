@@ -52,4 +52,5 @@ void main() {
       verify(() => nearbyPlacesApiClient.fetchPlaces(mockFilter)).called(1);
     });
   });
+
 }
