@@ -9,14 +9,7 @@ import '../../helpers/hydrated_bloc.dart';
 class MockNearbyPlacesRepository extends Mock
     implements NearbyPlacesRepository {}
 
-final mockSearchParams = SearchParams(
-  lastUpdatedLocation: null,
-  currentLocation: null,
-  placeFilter: PlaceFilter(
-    placeType: PlaceType.restaurant,
-    latLng: null,
-  ),
-);
+const mockSearchParams = SearchParams.empty;
 
 final mockPlacesList = [
   Place(name: 'first place'),
@@ -75,12 +68,13 @@ void main() {
           final nearbyplacesCubit =
               NearbyplacesCubit(mockNearbyPlacesRepository);
 
-          nearbyplacesCubit.state
-              // .copyWith(searchParams: mockSearchParams)
-              .copyWith(nearbyPlaces: mockNearbyPlaces);
+          final newState = nearbyplacesCubit.state.copyWith(
+            searchParams: mockSearchParams,
+            nearbyPlaces: mockNearbyPlaces,
+          );
 
           expect(
-            nearbyplacesCubit.state.nearbyPlaces,
+            newState.nearbyPlaces,
             isA<NearbyPlaces>()
                 .having(
                   (n) => n.places,
@@ -91,6 +85,21 @@ void main() {
                   (n) => n.searchParams,
                   'search parameters',
                   mockSearchParams,
+                ),
+          );
+
+          expect(
+            newState.searchParams,
+            isA<SearchParams>()
+                .having(
+                  (s) => s.lastUpdatedLocation,
+                  'last updated location',
+                  mockSearchParams.lastUpdatedLocation,
+                )
+                .having(
+                  (s) => s.currentLocation,
+                  'current location',
+                  mockSearchParams.currentLocation,
                 ),
           );
         });

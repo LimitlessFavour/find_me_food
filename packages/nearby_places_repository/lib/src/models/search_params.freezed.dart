@@ -233,7 +233,7 @@ class __$SearchParamsCopyWithImpl<$Res> extends _$SearchParamsCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_SearchParams implements _SearchParams {
-  _$_SearchParams(
+  const _$_SearchParams(
       {@JsonKey(name: 'last_updated_location', toJson: latLngToJson)
           required this.lastUpdatedLocation,
       @JsonKey(name: 'current_location', toJson: latLngToJson)
@@ -307,7 +307,7 @@ class _$_SearchParams implements _SearchParams {
 }
 
 abstract class _SearchParams implements SearchParams {
-  factory _SearchParams(
+  const factory _SearchParams(
       {@JsonKey(name: 'last_updated_location', toJson: latLngToJson)
           required LatLng? lastUpdatedLocation,
       @JsonKey(name: 'current_location', toJson: latLngToJson)

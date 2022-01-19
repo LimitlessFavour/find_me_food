@@ -5,14 +5,16 @@ import 'package:location_repository/location_repository.dart'
     as location_repository;
 
 part 'location.g.dart';
+part 'location.freezed.dart';
 
-@JsonSerializable()
-class Location extends Equatable {
-  const Location({
-    this.latitude,
-    this.longitude,
-    required this.lastUpdated,
-  });
+
+@freezed
+class Location with _$Location{
+  const factory Location({
+    double? latitude,
+    double? longitude,
+    required DateTime lastUpdated,
+  })= _Location;
 
   factory Location.fromRepository(
       location_repository.LocatorPosition position) {
@@ -28,25 +30,50 @@ class Location extends Equatable {
   static final empty = Location(
     lastUpdated: DateTime(0),
   );
-
-  final double? latitude;
-  final double? longitude;
-  final DateTime lastUpdated;
-
-  Map<String, dynamic> toJson() => _$LocationToJson(this);
-
-  @override
-  List<Object> get props => [latitude ?? 0, longitude ?? 0, lastUpdated];
-
-  Location copyWith({
-    double? latitude,
-    double? longitude,
-    DateTime? lastUpdated,
-  }) {
-    return Location(
-      latitude: latitude ?? this.latitude,
-      longitude: longitude ?? this.longitude,
-      lastUpdated: lastUpdated ?? this.lastUpdated,
-    );
-  }
 }
+
+
+// @JsonSerializable()
+// class Location extends Equatable {
+//   const Location({
+//     this.latitude,
+//     this.longitude,
+//     required this.lastUpdated,
+//   });
+
+//   factory Location.fromRepository(
+//       location_repository.LocatorPosition position) {
+//     return Location(
+//       latitude: position.latitude,
+//       longitude: position.longitude,
+//       lastUpdated: DateTime.now(),
+//     );
+//   }
+//   factory Location.fromJson(Map<String, dynamic> json) =>
+//       _$LocationFromJson(json);
+
+//   static final empty = Location(
+//     lastUpdated: DateTime(0),
+//   );
+
+//   final double? latitude;
+//   final double? longitude;
+//   final DateTime lastUpdated;
+
+//   Map<String, dynamic> toJson() => _$LocationToJson(this);
+
+//   @override
+//   List<Object> get props => [latitude ?? 0, longitude ?? 0, lastUpdated];
+
+//   Location copyWith({
+//     double? latitude,
+//     double? longitude,
+//     DateTime? lastUpdated,
+//   }) {
+//     return Location(
+//       latitude: latitude ?? this.latitude,
+//       longitude: longitude ?? this.longitude,
+//       lastUpdated: lastUpdated ?? this.lastUpdated,
+//     );
+//   }
+// }

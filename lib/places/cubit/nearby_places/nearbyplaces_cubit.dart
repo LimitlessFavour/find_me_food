@@ -1,11 +1,15 @@
 import 'package:equatable/equatable.dart';
 import 'package:find_me_food_bloc/places/helper/calculate_distance.dart';
 import 'package:find_me_food_bloc/places/models/nearby_places.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'package:json_annotation/json_annotation.dart';
 import 'package:nearby_places_repository/nearby_places_repository.dart';
 
 part 'nearbyplaces_cubit.g.dart';
+// part 'nearbyplaces_state.g.dart';
+// part 'nearbyplaces_state.freezed.dart';
+part 'nearbyplaces_cubit.freezed.dart';
+
 part 'nearbyplaces_state.dart';
 
 class MissingLocationException implements Exception {}
@@ -37,6 +41,7 @@ class NearbyplacesCubit extends HydratedCubit<NearbyplacesState> {
         ),
       );
     } on Exception {
+      //TODO Handle exception cases properly
       emit(
         state.copyWith(status: NearbyPlacesStatus.failure),
       );

@@ -12,20 +12,21 @@ void main() {
     );
   });
 
-
-    group('toJson/fromJson', () {
-      test('SearchParams works properly', () {
-        final mockSearchParams = SearchParams(
-          lastUpdatedLocation: mockFilter.latLng,
-          currentLocation: mockFilter.latLng,
-          placeFilter: mockFilter,
-        );
-        expect(SearchParams.fromJson(SearchParams.empty.toJson()),
-            SearchParams.empty);
-        expect(
-          SearchParams.fromJson(mockSearchParams.toJson()),
-          mockSearchParams,
-        );
-      });
+  group('toJson/fromJson', () {
+    test('SearchParams works properly', () {
+      final mockSearchParams = SearchParams(
+        lastUpdatedLocation: mockFilter.latLng,
+        currentLocation: mockFilter.latLng,
+        placeFilter: mockFilter,
+      );
+      expect(
+        SearchParams.fromJson(SearchParams.empty.toJson()),
+        SearchParams.empty,
+      );
+      expect(
+        SearchParams.fromJson(mockSearchParams.toJson()),
+        mockSearchParams,
+      );
     });
+  });
 }

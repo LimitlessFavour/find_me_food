@@ -9,8 +9,6 @@ extension LocationStatusX on LocationStatus {
   bool get isFailure => this == LocationStatus.failure;
 }
 
-// @immutable
-// abstract class CurrentlocationState {}
 
 @JsonSerializable()
 class CurrentlocationState extends Equatable {

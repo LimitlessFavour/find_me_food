@@ -33,7 +33,7 @@ enum PlaceType {
 
 @freezed
 class PlaceFilter with _$PlaceFilter {
-  factory PlaceFilter({
+  const factory PlaceFilter({
     @JsonKey(name: 'lat_lng', toJson: locationToJson) required LatLng? latLng,
     @JsonKey(name: 'place_type') required PlaceType placeType,
     @Default(20000) double radius,

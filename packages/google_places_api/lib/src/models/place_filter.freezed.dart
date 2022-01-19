@@ -163,7 +163,7 @@ class __$PlaceFilterCopyWithImpl<$Res> extends _$PlaceFilterCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_PlaceFilter implements _PlaceFilter {
-  _$_PlaceFilter(
+  const _$_PlaceFilter(
       {@JsonKey(name: 'lat_lng', toJson: locationToJson) required this.latLng,
       @JsonKey(name: 'place_type') required this.placeType,
       this.radius = 20000});
@@ -215,7 +215,7 @@ class _$_PlaceFilter implements _PlaceFilter {
 }
 
 abstract class _PlaceFilter implements PlaceFilter {
-  factory _PlaceFilter(
+  const factory _PlaceFilter(
       {@JsonKey(name: 'lat_lng', toJson: locationToJson)
           required LatLng? latLng,
       @JsonKey(name: 'place_type')

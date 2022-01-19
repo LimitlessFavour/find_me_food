@@ -8,61 +8,26 @@ part of 'nearbyplaces_cubit.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-NearbyplacesState _$NearbyplacesStateFromJson(Map<String, dynamic> json) {
-  return NearbyplacesState(
-    searchParams: json['searchParams'] == null
-        ? null
-        : SearchParams.fromJson(json['searchParams'] as Map<String, dynamic>),
-    status: _$enumDecodeNullable(_$NearbyPlacesStatusEnumMap, json['status']),
-    nearbyPlaces: json['nearbyPlaces'] == null
-        ? null
-        : NearbyPlaces.fromJson(json['nearbyPlaces'] as Map<String, dynamic>),
-  );
-}
-
-Map<String, dynamic> _$NearbyplacesStateToJson(NearbyplacesState instance) =>
-    <String, dynamic>{
-      'searchParams': instance.searchParams,
-      'status': _$NearbyPlacesStatusEnumMap[instance.status],
-      'nearbyPlaces': instance.nearbyPlaces,
-    };
-
-K _$enumDecode<K, V>(
-  Map<K, V> enumValues,
-  Object? source, {
-  K? unknownValue,
-}) {
-  if (source == null) {
-    throw ArgumentError(
-      'A value must be provided. Supported values: '
-      '${enumValues.values.join(', ')}',
+_$_NearbyplacesState _$$_NearbyplacesStateFromJson(Map<String, dynamic> json) =>
+    _$_NearbyplacesState(
+      searchParams: json['searchParams'] == null
+          ? SearchParams.empty
+          : SearchParams.fromJson(json['searchParams'] as Map<String, dynamic>),
+      status:
+          $enumDecodeNullable(_$NearbyPlacesStatusEnumMap, json['status']) ??
+              NearbyPlacesStatus.initial,
+      nearbyPlaces: json['nearbyPlaces'] == null
+          ? NearbyPlaces.empty
+          : NearbyPlaces.fromJson(json['nearbyPlaces'] as Map<String, dynamic>),
     );
-  }
 
-  return enumValues.entries.singleWhere(
-    (e) => e.value == source,
-    orElse: () {
-      if (unknownValue == null) {
-        throw ArgumentError(
-          '`$source` is not one of the supported values: '
-          '${enumValues.values.join(', ')}',
-        );
-      }
-      return MapEntry(unknownValue, enumValues.values.first);
-    },
-  ).key;
-}
-
-K? _$enumDecodeNullable<K, V>(
-  Map<K, V> enumValues,
-  dynamic source, {
-  K? unknownValue,
-}) {
-  if (source == null) {
-    return null;
-  }
-  return _$enumDecode<K, V>(enumValues, source, unknownValue: unknownValue);
-}
+Map<String, dynamic> _$$_NearbyplacesStateToJson(
+        _$_NearbyplacesState instance) =>
+    <String, dynamic>{
+      'searchParams': searchParamsToJson(instance.searchParams),
+      'status': _$NearbyPlacesStatusEnumMap[instance.status],
+      'nearbyPlaces': nearbyPlacesToJson(instance.nearbyPlaces),
+    };
 
 const _$NearbyPlacesStatusEnumMap = {
   NearbyPlacesStatus.initial: 'initial',
